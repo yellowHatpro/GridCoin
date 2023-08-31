@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import {DisplayCampaigns, Card} from '../components' 
+import {Card} from '../components'
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {

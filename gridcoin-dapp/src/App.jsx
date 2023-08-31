@@ -1,21 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {CampaignDetails, CreateCampaign, Home, Profile} from './pages';
+import {ItemDetails, GridSpecialStore, Home, Profile} from './pages';
 import {Navbar, Sidebar} from './components';
 
 const App = () => {
+    const [cart, setCart] = useState([])
   return(
     <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">
         <Sidebar/>
       </div>
       <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
-        <Navbar/>
+        <Navbar cart={cart} setCart={setCart}/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/profile' element={<Profile/>}/>
-        <Route path='/create-campaign' element={<CreateCampaign/>}/>
-        <Route path='/campaign-details/:id' element={<CampaignDetails/>}/>
+        <Route path='/grid-special-store' element={<GridSpecialStore/>}/>
+        <Route path='/grid-special-store/:id' element={<ItemDetails cart={cart} setCart={setCart}/>}/>
       </Routes>
       </div>
     </div>

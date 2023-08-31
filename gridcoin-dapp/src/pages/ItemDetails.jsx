@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-const CampaignDetails = () => {
+const ItemDetails = () => {
   const {id} = useParams();
   const [product, setProduct] = useState({
     id: 0,
@@ -45,4 +45,4 @@ const CampaignDetails = () => {
   )
 }
 
-export default CampaignDetails
+export default ItemDetails

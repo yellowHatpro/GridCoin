@@ -1,12 +1,10 @@
 import React, {useState, useEffect}  from 'react'
-import {ethers} from 'ethers';
-import {money} from '../assets/';
 import { useNavigate } from 'react-router-dom';
 import {useStateContext} from '../context';
 import {Card} from '../components'
 import axios from 'axios';
 
-const CreateCampaign = () => {
+const GridSpecialStore = () => {
   const navigate = useNavigate();
   const [isLoading, setisLoading] = useState(false);
   const stateContext = useStateContext();
@@ -49,7 +47,7 @@ const CreateCampaign = () => {
           description={card.description}
           price={card.price}
           rating={card.rating}
-          onClick={()=>{navigate("/campaign-details/"+card.id+"")}}
+          onClick={()=>{navigate("/grid-special-store/"+card.id+"")}}
         />
       )
       )}
@@ -59,4 +57,4 @@ const CreateCampaign = () => {
   )
 }
 
-export default CreateCampaign
+export default GridSpecialStore

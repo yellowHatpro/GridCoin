@@ -1,35 +1,38 @@
-import { createCampaign, dashboard, logout, payment, profile, withdraw } from '../assets';
+import { grid_special_store, dashboard, logout, wallet, profile, history, cart } from '../assets';
 
 export const navlinks = [
   {
-    name: 'dashboard',
+    name: 'Dashboard',
     imgUrl: dashboard,
     link: '/',
   },
   {
-    name: 'campaign',
-    imgUrl: createCampaign,
-    link: '/create-campaign',
+    name: 'Cart',
+    imgUrl: cart,
+    link: "/cart"
   },
   {
-    name: 'payment',
-    imgUrl: payment,
-    link: '/',
-    disabled: true,
+    name: 'Grid Special Store',
+    imgUrl: grid_special_store,
+    link: '/grid-special-store',
   },
   {
-    name: 'withdraw',
-    imgUrl: withdraw,
-    link: '/',
-    disabled: true,
+    name: 'Wallet',
+    imgUrl: wallet,
+    link: '/wallet',
   },
   {
-    name: 'profile',
+    name: 'History',
+    imgUrl: history,
+    link: '/history',
+  },
+  {
+    name: 'Profile',
     imgUrl: profile,
     link: '/profile',
   },
   {
-    name: 'logout',
+    name: 'Logout',
     imgUrl: logout,
     link: '/',
     disabled: true,
