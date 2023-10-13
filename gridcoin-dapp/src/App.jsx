@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {ItemDetails, GridSpecialStore, Home, Profile} from './pages';
 import {Navbar, Sidebar} from './components';
+import Cart from "./pages/Cart";
 
 const App = () => {
     const [cart, setCart] = useState([])
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/grid-special-store' element={<GridSpecialStore/>}/>
         <Route path='/grid-special-store/:id' element={<ItemDetails cart={cart} setCart={setCart}/>}/>
+          <Route path ='/cart' element = {<Cart cart ={cart} setCart={setCart} />}/>
       </Routes>
       </div>
     </div>

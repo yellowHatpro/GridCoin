@@ -2,15 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .linear-gradients{
   background: linear-gradient(
     179.14deg,
     rgba(32,18,63,0) -7.14%,
-    #0000000 87.01%
+    #000000 87.01%
     );
-}
-
-input[type="data"]::webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(0.8);
 }

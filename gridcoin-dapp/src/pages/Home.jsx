@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App  grid  lg:grid-cols-3 md:grid-cols-2">
+    <div className="App grid lg:grid-cols-3 md:grid-cols-2">
       {cardsData.map((card,idx) => (
         <Card 
           key={idx}
@@ -26,7 +26,7 @@ const Home = () => {
           description={card.description}
           price={card.price}
           rating={card.rating}
-          onClick={()=>{navigate("/campaign-details/"+card.id+"")}}
+          onClick={()=>{navigate("/grid-special-store/"+card.id+"")}}
         />
       )
       )}

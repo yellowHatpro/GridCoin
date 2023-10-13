@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 import {CustomButton} from './';
-import {menu, search, thirdweb, cart, gridkart} from '../assets';
+import {menu, search, thirdweb, gridkart} from '../assets';
 import { navlinks } from '../constants';
 import {useStateContext} from '../context';
 
@@ -11,27 +11,24 @@ const Navbar = () => {
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const {connect, address} = useStateContext(); 
   return (
-    <div className ="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
+    <div className ="ml-30 flex md:flex-row lg:flex-row sm:flex-row flex-col-reverse justify-between mb-[35px] gap-6 min-w-screen">
       <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#1c1c24] rounded-[100px]">
         <input type="text" placeholder="Search for stuff" className="flex w-full font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent"/>
         <div className="w-[72px] h-full rounded-[20px] bg-[#A7A3E2] flex justify-center items-center cursor-pointer">
-          <img src={search} alt="Search" className="w-[15px] h-[15px] object-contain"/> 
+          <img src={search} alt="Search" className="w-[15px] h-[15px] object-contain"/>
         </div>
       </div>
-    
-      <div className="sm:flex hidden flex-row justify-end gap-4 w-[72px] h-full ">
-        <img src={cart} alt={"Cart"} className={"w-[30px] h-[30px] object-contain"}/>
-        <div>
 
-        </div>
-        <CustomButton
-          btnType="button"
-          title={address ? "GridCoin Deals" : "Connect"}
-          styles={address ? "bg-[#A7A3E2]" : "bg-[#8c6dfd]"}
-          handleClick={()=>{
-          if(address) navigate('create-campaign')
-          else connect()
-          }}/>
+      <div className="sm:flex hidden flex-row justify-end gap-4">
+
+        {!address && <CustomButton
+            btnType="button"
+            title= "Connect"
+            styles= "bg-[#8c6dfd]"
+            handleClick={() => {
+              if (address) navigate('store')
+              else connect()
+            }}/>}
         <Link to="/profile">
           <div className={"w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer"}>
             <img src={thirdweb} alt="user" className="w-[60%] h-[60%] object-contain"/> 
@@ -71,14 +68,13 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex mx-3">
-            <CustomButton
-              btnType="button"
-              title={address ? "GridCoin Deals" : "Connect"}
-              styles={address ? "bg-[#A7A3E2]" : "bg-[#8c6dfd]"}
-              handleClick={()=>{
-              if(address) navigate('create-campaign')
-              else connect()
-            }}/>
+            {!address && <CustomButton
+                btnType="button"
+                title= "Connect"
+                styles={"bg-[#8c6dfd]"}
+                handleClick={() => {
+                  connect()
+                }}/>}
           </div>
         </div>
       </div>
