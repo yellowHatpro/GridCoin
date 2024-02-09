@@ -2,7 +2,6 @@ import React from 'react'
 import {useUserContext} from "../context";
 import {Link} from "react-router-dom";
 
-//TODO: Keep the cart values here
 const Sidebar = () => {
   const userStore = useUserContext()
   return (
@@ -11,7 +10,7 @@ const Sidebar = () => {
           {
                userStore.cart.map((cartItem, index)=>{
                   return(
-                      <Link to={`/grid-special-store/${cartItem.id}`}>
+                      <Link key={index} to={`/grid-special-store/${cartItem.id}`}>
                           <img src={cartItem.thumbnail}
                                className={"h-[50px] w-[50px] rounded-full content-stretch"}
                                alt={""}/>

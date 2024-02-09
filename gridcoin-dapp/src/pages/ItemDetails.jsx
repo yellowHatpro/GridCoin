@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React, {Suspense, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import {LucideLoader} from "lucide-react";
+import {useUserContext} from "../context";
 
 const ItemDetails = () => {
   const {id} = useParams();
   const [loading, setLoading] = useState(true)
+  const userStore = useUserContext()
   const [product, setProduct] = useState({
     id: 0,
     title: "",
@@ -16,14 +18,6 @@ const ItemDetails = () => {
     stock: 0
   });
 
-    const handleCartData = (item) => {
-        cart.map((cartItem)=>{
-            if (cartItem.id === item.id) {
-
-            }
-        })
-        setCart((cartItems) => [...cartItems, item])
-    }
 
     useEffect(() => {
     axios.get(`https://dummyjson.com/products/${id}`)
@@ -56,9 +50,6 @@ const ItemDetails = () => {
           <div className="py-4">
 
               <div className="flex child:rounded-md child:bg-[#1e1e2e] child:p-2 gap-4 text-purple-200">
-                  <button onClick={()=> {handleCartData(product)}}>
-                     Add
-                  </button>
                   <button>
                     Avail discount
                   </button>

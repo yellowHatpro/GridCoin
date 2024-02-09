@@ -55,7 +55,9 @@ const Navbar = () => {
         </div>
         <div className={`text-purple-200 absolute top-[60px] right-0 left-0 bg-[#1c1c24] border border-purple-200 rounded-md z-10 shadow-secondary p-4 ${!toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-10'} transition-all duration-500`}>
             <Link to="/profile">
-              <div className={"flex flex-row items-center cursor-pointer gap-2 py-2"}>
+              <div
+                  onClick={()=>setToggleDrawer((prev)=> !prev)}
+                  className={"flex flex-row items-center cursor-pointer gap-2 py-2"}>
                 <img
                     src={fallbackUser}
                     alt="user"
@@ -64,13 +66,17 @@ const Navbar = () => {
               </div>
             </Link>
             <Link to={"/cart"}>
-              <div className={"flex flex-row gap-2 py-2"}>
+              <div
+                  onClick={()=>setToggleDrawer((prev)=> !prev)}
+                  className={"flex flex-row gap-2 py-2"}>
                 <ShoppingCart/>
                 <h1>Cart</h1>
               </div>
             </Link>
-          <Link to={"/cart"}>
-            <div className={"flex flex-row gap-2 py-2"}>
+          <Link to={"/settings"}>
+            <div
+                onClick={()=>setToggleDrawer((prev)=> !prev)}
+                className={"flex flex-row gap-2 py-2"}>
               <SettingsIcon/>
               <h1>Settings</h1>
             </div>

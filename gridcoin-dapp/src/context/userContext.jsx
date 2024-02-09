@@ -11,6 +11,7 @@ export const UserContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
     const [cartPrice, setCartPrice] = useState(0)
+    const [products, setProducts] = useState([])
 
     return (
         <UserContext.Provider value={{
@@ -21,7 +22,9 @@ export const UserContextProvider = ({children}) => {
             history,
             setHistory,
             cartPrice,
-            setCartPrice
+            setCartPrice,
+            products,
+            setProducts
         }}>
             {children}
         </UserContext.Provider>
