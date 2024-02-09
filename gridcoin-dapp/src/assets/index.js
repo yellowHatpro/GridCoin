@@ -15,6 +15,7 @@ import thirdweb from './thirdweb.png';
 import cart from './cart.svg';
 import gridcoin from './gridcoin.svg';
 import gridkart from './gridkart.svg';
+import fallbackUser from './fallback_user.png'
 
 export {
   gridkart,
@@ -34,4 +35,5 @@ export {
   money,
   loader,
   thirdweb,
+  fallbackUser
 };

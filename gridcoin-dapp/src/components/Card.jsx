@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import {CustomButton} from "./index";
-import Dropdown from "./Dropdown";
 import {useUserContext} from "../context";
 import {CheckCircle, MinusCircle, PlusCircle, ShoppingCart} from "lucide-react";
 
@@ -50,9 +48,8 @@ const Card = ({item, onClick, cartCost, setCartCost, setCart, cart, isInsideCart
     }
 
     return (
-
         <div
-            className="border border-[#f3e8ff] hover:border-[#b3aeef] cursor-pointer hover:bg-[#1e1e2e] shadow-md rounded-md flex flex-col justify-between">
+            className="border border-[#f3e8ff] hover:border-[#b3aeef] cursor-pointer hover:bg-[#1e1e2e] shadow-md rounded-md flex flex-col justify-between font-light">
             <div>
                 <img
                     className="h-[250px] w-full rounded-ss-md rounded-se-md hover:shadow-red-100"
@@ -61,12 +58,12 @@ const Card = ({item, onClick, cartCost, setCartCost, setCart, cart, isInsideCart
                 />
 
                 <div className="flex flex-row justify-between p-2">
-                    <h3 className="text-l font-black text-purple-200 flex">{title}</h3>
-                    <h3 className="text-l font-semibold text-purple-200 flex">{" Rs " + price}</h3>
+                    <h3 className="text-lg font-medium text-purple-200 flex">{title}</h3>
+                    <h3 className="text-purple-200 flex">{" Rs " + price}</h3>
                 </div>
             </div>
             <div className={"p-2"}>
-                <div className="text-l font-semibold text-purple-100 flex justify-between flex-row ">
+                <div className="text-purple-100 flex justify-between flex-row ">
                     {"Rating: " + rating}
                     <button
                         className={"border bg-[#f3e8ff] rounded-md border-[#b3aeef] p-2"}
