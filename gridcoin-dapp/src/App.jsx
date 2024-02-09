@@ -8,7 +8,7 @@ const App = () => {
     const [cart, setCart] = useState([])
     const [cartCost, setCartCost] = useState(0)
     return (
-        <div className="sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
+        <div className="sm:-8 p-4 min-h-screen flex flex-row">
             <Sidebar/>
             <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
                 <Navbar cart={cart} setCart={setCart}/>
