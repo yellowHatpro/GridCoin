@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Card} from '../components'
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({cart, cartCost, setCart, setCartCost}) => {
  const [cardsData, setCardsData] = useState([]);
  const navigate = useNavigate();
   useEffect(() => {
@@ -17,16 +17,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App grid lg:grid-cols-3 md:grid-cols-2">
+    <div className="App grid lg:grid-cols-3 md:grid-cols-2 child:m-2">
       {cardsData.map((card,idx) => (
-        <Card 
+        <Card
           key={idx}
-          title={card.title}
-          thumb={card.thumbnail}
-          description={card.description}
-          price={card.price}
-          rating={card.rating}
+          item = {card}
+          cartCost={cartCost}
           onClick={()=>{navigate("/grid-special-store/"+card.id+"")}}
+          setCartCost={setCartCost}
+          setCart={setCart}
+          cart = {cart}
+          isInsideCart={cart.includes(card)}
         />
       )
       )}

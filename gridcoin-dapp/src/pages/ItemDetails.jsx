@@ -11,7 +11,7 @@ const ItemDetails = ({cart, setCart}) => {
     price: 0,
     category: "",
     thumbnail: "",
-    supply: 10000
+    stock: 0
   });
 
     const handleCartData = (item) => {
