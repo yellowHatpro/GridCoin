@@ -1,17 +1,17 @@
 import {Card, CustomButton} from "../components";
-import {useStateContext} from "../context";
+import {useStateContext, useUserContext} from "../context";
 
-const Cart = ({cart, setCart, cartCost: totalCost, setCartCost}) => {
+const Cart = () => {
     const stateContext = useStateContext();
-    console.log(cart)
+    const userStore = useUserContext()
 
     //TODO try adding state for is Selected in cart
 
     return (
         <div className={"text-white"}>
             <div>
-                {`Total Amount to pay: ${totalCost} `}
-                {(totalCost > 0) &&
+                {`Total Amount to pay: ${userStore.cartPrice} `}
+                {(userStore.cartPrice > 0) &&
                     <CustomButton btnType={"button"}
                                   title={"Pay"}
                                   styles={"bg-[#8c6dfd]"}
@@ -29,18 +29,10 @@ const Cart = ({cart, setCart, cartCost: totalCost, setCartCost}) => {
             </div>
             <div className={"grid  lg:grid-cols-3 md:grid-cols-2"}>
                 {
-                    cart.map((card, idx) => (
+                    userStore.cart.map((card, idx) => (
                         <Card
                             item={card}
                             key={idx}
-                            onClick={() => {
-                                navigate("/grid-special-store/" + card.id + "")
-                            }}
-                            setCartCost={setCartCost}
-                            cartCost={totalCost}
-                            setCart={setCart}
-                            cart={cart}
-                            isInsideCart={true}
                         />
                     ))
                 }

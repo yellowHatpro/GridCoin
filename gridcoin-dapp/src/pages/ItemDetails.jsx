@@ -3,7 +3,7 @@ import React, {Suspense, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import {LucideLoader} from "lucide-react";
 
-const ItemDetails = ({cart, setCart}) => {
+const ItemDetails = () => {
   const {id} = useParams();
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState({

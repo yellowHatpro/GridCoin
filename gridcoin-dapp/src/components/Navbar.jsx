@@ -7,7 +7,6 @@ import {MenuIcon, SettingsIcon, ShoppingCart, ShoppingCartIcon} from "lucide-rea
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const {connect, address} = useStateContext();
   return (
@@ -28,15 +27,15 @@ const Navbar = () => {
             </button>
           </Link>
         </div>
-        {!address && <CustomButton
-            btnType="button"
-            title="Connect"
-            styles="bg-[#8c6dfd]"
-            handleClick={() => {
+        {!address && <button
+            className={"bg-[#1e1e2e] p-2 rounded-md hover:bg-purple-200 hover:text-[#1e1e2e] transition-all duration-500"}
+            onClick={() => {
               if (address) navigate('store')
               else connect()
-            }}/>}
-        <Link to="/profile">
+            }}>
+          Connect
+        </button>}
+        {address && <Link to="/profile">
           <div
               className={"w-[40px] h-[40px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer"}>
             <img
@@ -44,7 +43,7 @@ const Navbar = () => {
                 alt="user"
                 className="rounded-full object-contain"/>
           </div>
-        </Link>
+        </Link>}
       </div>
 
       {/* Small Screen Navigation */}
@@ -54,7 +53,7 @@ const Navbar = () => {
               className={"text-purple-200"}
               onClick={()=>setToggleDrawer((prev)=> !prev)}/>
         </div>
-        <div className={`text-purple-200 absolute top-[60px] right-0 left-0 bg-[#1c1c24] border border-purple-200 rounded-md z-10 shadow-secondary p-4 ${!toggleDrawer ? '-translate-y-[40vh]' : 'translate-y-10'} transition-all duration-500`}>
+        <div className={`text-purple-200 absolute top-[60px] right-0 left-0 bg-[#1c1c24] border border-purple-200 rounded-md z-10 shadow-secondary p-4 ${!toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-10'} transition-all duration-500`}>
             <Link to="/profile">
               <div className={"flex flex-row items-center cursor-pointer gap-2 py-2"}>
                 <img

@@ -7,28 +7,21 @@ export const UserContextProvider = ({children}) => {
         name: "",
         address: "",
         wallet: "",
-        cartList: [],
-        cartPrice: 0,
-        history: []
     })
-
-    const handleUser = ({name, address, wallet, cartList, cartPrice, history}) => {
-        setUser(
-            {
-                name: name,
-                address: address,
-                wallet: wallet,
-                cartList: cartList,
-                cartPrice: cartPrice,
-                history: history
-            }
-        )
-    }
+    const [cart, setCart] = useState([])
+    const [history, setHistory] = useState([])
+    const [cartPrice, setCartPrice] = useState(0)
 
     return (
         <UserContext.Provider value={{
-            handleUser,
-            user
+            user,
+            setUser,
+            cart,
+            setCart,
+            history,
+            setHistory,
+            cartPrice,
+            setCartPrice
         }}>
             {children}
         </UserContext.Provider>
