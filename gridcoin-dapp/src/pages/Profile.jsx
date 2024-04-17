@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 const Profile = () => {
   return (
-    <div>Profile</div>
-  )
-}
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;
